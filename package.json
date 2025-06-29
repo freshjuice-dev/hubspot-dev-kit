@@ -1,0 +1,58 @@
+{
+  "name": "hubspot-dev-kit",
+  "version": "1.0.0",
+  "description": "Hubspot Dev Kit is a set of tools and best practices provided by FreshJuice for developers who want to build, test, and manage custom themes, modules, and templates on the HubSpot CMS (Content Management System).",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky",
+    "fetch:hubspot": "npx hs fetch --overwrite / ./hubspot",
+    "upload:hubspot": "npx hs upload ./hubspot /",
+    "watch:hubspot": "npx hs watch ./hubspot /",
+    "watch:tailwind": "npx tailwindcss -i ./source/css/tailwindcss.css -o ./hubspot/THEME_NAME/compliled/css/tailwind.css --watch",
+    "build:tailwind": "npx tailwindcss -i ./source/css/tailwindcss.css -o ./hubspot/THEME_NAME/compliled/css/tailwind.css",
+    "watch:js": "esbuild ./source/js/main.js --outfile=./hubspot/THEME_NAME/compliled/js/main.js --bundle --watch",
+    "build:js": "esbuild ./source/js/main.js --outfile=./hubspot/THEME_NAME/compliled/js/main.js --bundle",
+    "start": "npx npm-run-all --parallel watch:*",
+    "build": "npx npm-run-all --serial build:js build:tailwind upload:hubspot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freshjuice-dev/hubspot-dev-kit.git"
+  },
+  "keywords": [
+    "hubspot",
+    "freshjuice",
+    "devkit"
+  ],
+  "author": {
+    "name": "FreshJuice",
+    "email": "contact@freshjuice.dev",
+    "url": "https://freshjuice.dev/"
+  },
+  "contributors": [
+    {
+      "name": "Alex Zappa",
+      "email": "alex@zappa.dev",
+      "url": "https://alex.zappa.dev/"
+    },
+    {
+      "name": "Aleksandr Zapparov",
+      "email": "alexander@zapparov.dev",
+      "url": "https://zapparov.dev/"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freshjuice-dev/hubspot-dev-kit/issues"
+  },
+  "homepage": "https://github.com/freshjuice-dev/hubspot-dev-kit#readme",
+  "devDependencies": {
+    "@hubspot/cli": "^7.4.8",
+    "@tailwindcss/cli": "^4.1.11",
+    "esbuild": "^0.25.5",
+    "husky": "^9.1.7",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^4.1.11"
+  }
+}

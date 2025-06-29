@@ -1,0 +1,8 @@
+@import "tailwindcss" prefix(fj) source(none);
+
+@source "../../hubspot/THEME_NAME/**/*.html";
+@source "../../hubspot/THEME_NAME/**/*.js";
+@source "../js/main.js";
+@source "./_*.css";
+
+@import "_print.css";
