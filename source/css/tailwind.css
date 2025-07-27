@@ -1,5 +1,11 @@
 @import "tailwindcss" prefix(fj) source(none);
 
+/* Whenever preflight styles affect site https://github.com/tailwindlabs/tailwindcss/discussions/15719
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(fj);
+@import "tailwindcss/utilities.css" layer(theme) prefix(fj);
+*/
+
 @source "../../hubspot/THEME_NAME/**/*.html";
 @source "../../hubspot/THEME_NAME/**/*.js";
 @source "../js/main.js";

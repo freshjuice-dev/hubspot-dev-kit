@@ -50,6 +50,16 @@ Once you've completed this simple ``init`` flow, you'll see a success message co
 File **hubspot.config.yml** contains your personal access keys
 Please be sure you are not track file **hubspot.config.yml** and its include to **.gitignore**
 
+5. Change ``THEME_NAME`` in ``package.json`` and ``tailwind.css`` so that changes and compiled css are saved properly.
+6. Once all is ready, use the ``fetch:hubspot`` script.
+
+``npm run fetch:hubspot``
+7. When it terminates, go to ``hubspot/templates/layouts/base.html`` and include the following in the head:
+```html
+{{ require_css(get_asset_url("../../compiled/css/tailwind.css")) }}
+```
+
+This will allow you to use tailwindcss classes for styling anywhere in your project, so in any section or module you may use tailwindcss classes
 ## NPM Scripts
 - ``prepare`` - Initializes husky.
 - ``fetch:hubspot`` - Fetches the current saved files on hubspot.
