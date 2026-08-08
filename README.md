@@ -1,5 +1,6 @@
 # hubspot-dev-kit
 
+> ⚠️ PRIVATE REPOSITORY — Proprietary and confidential. See [LICENSE](LICENSE).
 ## Tech Stack
 Hubspot Dev Kit is a theme boilerplate and uses [TailwindCSS V4](https://tailwindcss.com/) (CSS framework).
 
